@@ -1,15 +1,14 @@
+// initialization code
 var list = [];
 var idCounter = 100;
 
-const newItem = {
-                id: idCounter,
-                timeStamp: new Date(),
-                task: "Test Task",
-                completed:true,
-                editingMode:false};
-idCounter++;
-list.push(newItem);
+if (localStorage.getItem('todoList') != null) {
+  list = JSON.parse(localStorage.getItem('todoList') );
+  idCounter = JSON.parse(localStorage.getItem('todoListIdCounter'))
+}
 refreshList();
+
+
 
 function addItem() {
   const newTaskElement = document.getElementById('newTask')
@@ -21,6 +20,7 @@ function addItem() {
                     editingMode:false
                   };
   idCounter++;
+  localStorage.setItem('todoListIdCounter', JSON.stringify(idCounter) );
 
   if (newItem.task == "") {
     newItem.task = "empty task";
@@ -63,6 +63,7 @@ function checkItem(isChecked, itemIndex) {
 }
 
 function refreshList() {
+  // refresh the list html
   const listLength = list.length;
   var completeNewHTML = "";
 
@@ -71,6 +72,9 @@ function refreshList() {
     completeNewHTML += currentItemHTML;
   }
   document.getElementById('list').innerHTML = completeNewHTML;
+
+  // update the localStorage object
+  localStorage.setItem('todoList', JSON.stringify(list));
 }
 
 function constructHTMLCodeForItem(itemIndex) {
@@ -103,7 +107,7 @@ function constructHTMLCodeForItem(itemIndex) {
     inEditingModeOrNot =
       // task label with strikethrough
       '<div class="labelWithStrikethrough">\n' +
-      '<hr class="strikethrough" style="visibility: ' + crossedOutTaskOrNot + '">\n' + 
+      '<hr class="strikethrough" style="visibility: ' + crossedOutTaskOrNot + '">\n' +
       '<label onclick="editItem(this.parentNode.parentNode.id)">' + list[itemIndex].task + '</label>\n' +
       '</div>' +
       // delete button
