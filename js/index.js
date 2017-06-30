@@ -3,15 +3,15 @@ angular.module('todoApp', [])
     var todoList = this;
     todoList.todoText = "";
     todoList.todos = [
-      {text:'test todo 1', done:true},
-      {text:'test todo 2', done:false}
+      {text:'test todo 1', done:true, editing:false},
+      {text:'test todo 2', done:false, editing:true}
     ];
 
     todoList.addTodo = function() {
       if (todoList.todoText == "") {
         todoList.todoText = "empty task";
       }
-      todoList.todos.push({text:todoList.todoText, done:false});
+      todoList.todos.push({text:todoList.todoText, done:false, editing:true});
       todoList.todoText = "";
     }
 

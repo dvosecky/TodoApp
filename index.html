@@ -23,11 +23,24 @@
       <input type="checkbox" id="box{{$index}}" ng-model="todo.done">
       <label for="box{{$index}}"></label>
       <hr class="redLine"><hr class="redLine">
-      <div class="labelWithStrikethrough">
-        <hr class="strikethrough-{{todo.done}}">
-        <label>{{todo.text}}</label>
+
+      <!-- Normal (non-editing) Mode -->
+      <div class="visible-{{!todo.editing}}">
+        <div class="labelWithStrikethrough">
+          <hr class="strikethrough-{{todo.done}}">
+          <label ng-click="todo.editing=true">{{todo.text}}</label>
+        </div>
+        <button class="deleteButton" ng-click="todoList.deleteTodo($index)"></button>
       </div>
-      <button class="deleteButton" ng-click="todoList.deleteTodo($index)"></button>
+
+      <!-- Editing Mode -->
+      <div class="visible-{{todo.editing}}">
+        <input type="text" class="editTextField" placeholder="Editing task..."
+        ng-blur="todo.editing=false" ng-model="todo.text"/>
+        <button class="doneEditingButton" ng-click="todo.editing=false;">Done</button>
+      </div>
+      <hr>
+
     </div>
 
   </div>
