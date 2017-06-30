@@ -14,7 +14,7 @@
   <div class="container" ng-controller="TodoListController as todoList">
 
     <div class="add">
-      <input type="text" id="hey" ng-model="todoList.todoText" class ="addTextField" placeholder="Type your task..."/>
+      <input type="text" id="addTodoElement" ng-model="todoList.todoText" class="addTextField" placeholder="Type your task..."/>
       <button ng-click="todoList.addTodo()">Add</button>
     </div>
     <hr>
@@ -28,15 +28,15 @@
       <div class="visible-{{!todo.editing}}">
         <div class="labelWithStrikethrough">
           <hr class="strikethrough-{{todo.done}}">
-          <label ng-click="todo.editing=true">{{todo.text}}</label>
+          <label ng-click="todoList.editTodo($index)">{{todo.text}}</label>
         </div>
         <button class="deleteButton" ng-click="todoList.deleteTodo($index)"></button>
       </div>
 
       <!-- Editing Mode -->
       <div class="visible-{{todo.editing}}">
-        <input type="text" class="editTextField" placeholder="Editing task..."
-        ng-blur="todo.editing=false" ng-model="todo.text"/>
+        <input type="text" id="editTodoElement{{$index}}" class="editTextField"
+        placeholder="Editing task..." ng-model="todo.text" ng-blur="todo.editing=false;" />
         <button class="doneEditingButton" ng-click="todo.editing=false;">Done</button>
       </div>
       <hr>

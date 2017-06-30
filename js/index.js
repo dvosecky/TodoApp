@@ -1,18 +1,35 @@
 angular.module('todoApp', [])
   .controller('TodoListController', function() {
     var todoList = this;
+    var idCounter = 100;
     todoList.todoText = "";
+
     todoList.todos = [
-      {text:'test todo 1', done:true, editing:false},
-      {text:'test todo 2', done:false, editing:true}
+      {text:'test todo 1', done:false, editing:false},
+      {text:'test todo 2', done:false, editing:false}
     ];
 
     todoList.addTodo = function() {
       if (todoList.todoText == "") {
         todoList.todoText = "empty task";
       }
-      todoList.todos.push({text:todoList.todoText, done:false, editing:true});
+      todoList.todos.push({
+        id:idCounter,
+        timeStamp: new Date(),
+        text:todoList.todoText,
+        done:false,
+        editing:false
+      });
+      idCounter++;
       todoList.todoText = "";
+      document.getElementById("addTodoElement").focus();
+    }
+
+    todoList.editTodo = function(index) {
+      todoList.todos[index].editing=true;
+      hey = "editTodoElement" + index;
+      document.getElementById(hey).focus();
+      //alert(hey);
     }
 
     todoList.deleteTodo = function(index) {
