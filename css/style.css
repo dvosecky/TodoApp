@@ -53,7 +53,14 @@ hr {
   width: 99%;
 }
 
-.strikethrough {
+.strikethrough-false {
+  display: block;
+  visibility: hidden;
+  margin-bottom: -7px;
+  width: 90%;
+}
+
+.strikethrough-true {
   display: block;
   visibility: visible;
   margin-bottom: -7px;
@@ -80,7 +87,7 @@ hr {
   width: 77%;
 }
 
-.item {
+.todo {
   display: block;
   margin: auto;
   height: 40px;

@@ -1,33 +1,38 @@
 <!DOCTYPE html>
-<html >
+<html ng-app="todoApp">
 <head>
   <meta charset="UTF-8">
   <title>Todo List</title>
   <link rel="stylesheet" href="css/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+  <script src="js/index.js"></script>
 </head>
 
 <body>
-  <body>
   <h3>ToDo List</h3>
 
-  <div class="container">
+  <div class="container" ng-controller="TodoListController as todoList">
 
     <div class="add">
-      <input type="text" id="newTask" class ="addTextField" placeholder="Type your task..."/>
-      <button onclick="addItem()">Add</button>
+      <input type="text" id="hey" ng-model="todoList.todoText" class ="addTextField" placeholder="Type your task..."/>
+      <button ng-click="todoList.addTodo()">Add</button>
     </div>
     <hr>
 
-    <div id="list">
-      <!-- list gets filled in here -->
-
+    <div ng-repeat="todo in todoList.todos" class="todo">
+      <input type="checkbox" id="box{{$index}}" ng-model="todo.done">
+      <label for="box{{$index}}"></label>
+      <hr class="redLine"><hr class="redLine">
+      <div class="labelWithStrikethrough">
+        <hr class="strikethrough-{{todo.done}}">
+        <label>{{todo.text}}</label>
+      </div>
+      <button class="deleteButton" ng-click="todoList.deleteTodo($index)"></button>
     </div>
 
   </div>
   <img class="padBottom" src="images/padBottom.png">
   <div class="padBottomShadow"></div>
-
-  <script src="js/index.js"></script>
 
 </body>
 </html>

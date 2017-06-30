@@ -1,3 +1,27 @@
+angular.module('todoApp', [])
+  .controller('TodoListController', function() {
+    var todoList = this;
+    todoList.todoText = "";
+    todoList.todos = [
+      {text:'test todo 1', done:true},
+      {text:'test todo 2', done:false}
+    ];
+
+    todoList.addTodo = function() {
+      if (todoList.todoText == "") {
+        todoList.todoText = "empty task";
+      }
+      todoList.todos.push({text:todoList.todoText, done:false});
+      todoList.todoText = "";
+    }
+
+    todoList.deleteTodo = function(index) {
+      todoList.todos.splice(index, 1);
+    }
+
+  });
+
+/*
 // initialization code
 var list = [];
 var idCounter = 100;
@@ -127,4 +151,4 @@ function constructHTMLCodeForItem(itemIndex) {
     '<hr>';
   //alert(newHTML);
   return newHTML;
-}
+}*/
