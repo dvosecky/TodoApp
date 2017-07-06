@@ -20,13 +20,13 @@
     <hr>
 
     <div ng-repeat="todo in todoList.todos" class="todo">
-      <input type="checkbox" id="box{{$index}}" ng-model="todo.done">
+      <input type="checkbox" id="box{{$index}}" ng-model="todo.done" ng-click="todoList.updateLocalStorage()">
       <label for="box{{$index}}"></label>
       <hr class="redLine"><hr class="redLine">
 
       <!-- Normal (non-editing) Mode -->
       <div class="visible-{{!todo.editing}}">
-        <div class="labelWithStrikethrough">
+        <div class="label-grayedout-{{todo.done}}">
           <hr class="strikethrough-{{todo.done}}">
           <label ng-click="todoList.editTodo($index)">{{todo.text}}</label>
         </div>

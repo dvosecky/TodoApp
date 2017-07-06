@@ -133,8 +133,20 @@ input[type=checkbox]:checked + label {
   width: 26px;
 }
 
-.labelWithStrikethrough {
+.label-grayedout-false {
   display: inline-block;
+  font-size: 9pt;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  padding: 9px 0 0 0;
+  vertical-align: middle;
+  width: 180px;
+  text-transform: uppercase;
+}
+
+.label-grayedout-true {
+  display: inline-block;
+  color: lightgray;
   font-size: 9pt;
   font-weight: 600;
   letter-spacing: 0.05em;
