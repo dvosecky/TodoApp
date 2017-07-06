@@ -5,14 +5,20 @@ angular.module('todoApp', [])
     todoList.todoText = "";
 
     todoList.todos = [
-      {id:98, timeStamp:new Date(), text:'test todo 1', done:false, editing:true},
-      {id:99, timeStamp:new Date(), text:'test todo 2', done:false, editing:false}
+//      {id:98, timeStamp:new Date(), text:'test todo 1', done:false, editing:true},
+//      {id:99, timeStamp:new Date(), text:'test todo 2', done:false, editing:false}
     ];
+
+    if (localStorage.getItem('todoList') != null) {
+      todoList.todos = JSON.parse(localStorage.getItem('todoList') );
+      idCounter = JSON.parse(localStorage.getItem('todoListIdCounter'));
+    }
 
     todoList.addTodo = function() {
       if (todoList.todoText == "") {
         todoList.todoText = "empty task";
       }
+
       todoList.todos.push({
         id:idCounter,
         timeStamp: new Date(),
@@ -21,6 +27,8 @@ angular.module('todoApp', [])
         editing:false
       });
       idCounter++;
+      todoList.updateLocalStorage();
+
       todoList.todoText = "";
       document.getElementById("addTodoElement").focus();
     }
@@ -36,10 +44,18 @@ angular.module('todoApp', [])
       if (todoList.todos[index].text == "") {
         todoList.todos[index].text = "empty task";
       }
+
+      todoList.updateLocalStorage();
     }
 
     todoList.deleteTodo = function(index) {
       todoList.todos.splice(index, 1);
+      todoList.updateLocalStorage();
+    }
+
+    todoList.updateLocalStorage = function() {
+      localStorage.setItem('todoList', JSON.stringify(todoList.todos));
+      localStorage.setItem('todoListIdCounter', JSON.stringify(idCounter));
     }
 
   });
