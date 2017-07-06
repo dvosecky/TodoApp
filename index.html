@@ -25,7 +25,7 @@
       <hr class="redLine"><hr class="redLine">
 
       <!-- Normal (non-editing) Mode -->
-      <div class="visible-{{!todo.editing}}">
+      <div ng-class="{ 'active': !todo.editing, 'inactive': todo.editing }">
         <div class="label-grayedout-{{todo.done}}">
           <hr class="strikethrough-{{todo.done}}">
           <label ng-click="todoList.editTodo($index)">{{todo.text}}</label>
@@ -34,7 +34,7 @@
       </div>
 
       <!-- Editing Mode -->
-      <div class="visible-{{todo.editing}}">
+      <div ng-class="{ 'active': todo.editing, 'inactive': !todo.editing }">
         <input type="text" id="editTodoElement{{$index}}" class="editTextField"
         placeholder="Editing task..." ng-model="todo.text" ng-blur="todoList.doneEditing($index)" />
         <button class="doneEditingButton" ng-click="todoList.doneEditing($index);">Done</button>

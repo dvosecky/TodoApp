@@ -40,11 +40,11 @@ hr {
   width: 99%;
 }
 
-.visible-true {
+.active {
   display: inline;
 }
 
-.visible-false {
+.inactive {
   display: inline-block;
   height: 0;
   width: 0;
