@@ -9,19 +9,6 @@ body {
   position: relative;
 }
 
-.padBottom {
-  display: block;
-  margin: 1px 2px;
-  width: 296px;
-}
-
-.padBottomShadow {
-  box-shadow: 3px 4px 5px 0px rgba(0, 0, 0, .5);
-  height: 10px;
-  margin: -12px auto 0 auto;
-  width: 280px;
-}
-
 .container {
   border-top: none;
   box-shadow: 0px 0px 2px rgba(0, 0, 0, 1),
@@ -62,30 +49,6 @@ hr {
   height: 0;
   width: 0;
   overflow: hidden;
-}
-
-.strikethrough-false {
-  display: block;
-  visibility: hidden;
-  margin-bottom: -7px;
-  width: 170px;
-}
-
-.strikethrough-true {
-  display: block;
-  visibility: visible;
-  margin-bottom: -7px;
-  width: 170px;
-}
-
-.redLine {
-  display: inline-block;
-  background-color: pink;
-  border: none;
-  margin: 0 0 0 1px;
-  height: 40px;
-  width: 1px;
-  vertical-align: middle;
 }
 
 .add {
@@ -131,6 +94,30 @@ input[type=checkbox]:checked + label {
   height: 26px;
   vertical-align: middle;
   width: 26px;
+}
+
+.redLine {
+  display: inline-block;
+  background-color: pink;
+  border: none;
+  margin: 0 0 0 1px;
+  height: 40px;
+  width: 1px;
+  vertical-align: middle;
+}
+
+.strikethrough-false {
+  display: block;
+  visibility: hidden;
+  margin-bottom: -7px;
+  width: 170px;
+}
+
+.strikethrough-true {
+  display: block;
+  visibility: visible;
+  margin-bottom: -7px;
+  width: 170px;
 }
 
 .label-grayedout-false {
@@ -179,4 +166,17 @@ input[type=checkbox]:checked + label {
   margin-right: 5px;
   vertical-align: middle;
   width: 47px;
+}
+
+.padBottom {
+  display: block;
+  margin: 1px 2px;
+  width: 296px;
+}
+
+.padBottomShadow {
+  box-shadow: 3px 4px 5px 0px rgba(0, 0, 0, .5);
+  height: 10px;
+  margin: -12px auto 0 auto;
+  width: 280px;
 }
