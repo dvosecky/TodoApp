@@ -36,8 +36,8 @@
       <!-- Editing Mode -->
       <div class="visible-{{todo.editing}}">
         <input type="text" id="editTodoElement{{$index}}" class="editTextField"
-        placeholder="Editing task..." ng-model="todo.text" ng-blur="todo.editing=false;" />
-        <button class="doneEditingButton" ng-click="todo.editing=false;">Done</button>
+        placeholder="Editing task..." ng-model="todo.text" ng-blur="todoList.doneEditing($index)" />
+        <button class="doneEditingButton" ng-click="todoList.doneEditing($index);">Done</button>
       </div>
       <hr>
 

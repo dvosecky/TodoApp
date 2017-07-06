@@ -5,8 +5,8 @@ angular.module('todoApp', [])
     todoList.todoText = "";
 
     todoList.todos = [
-      {text:'test todo 1', done:false, editing:false},
-      {text:'test todo 2', done:false, editing:false}
+      {id:98, timeStamp:new Date(), text:'test todo 1', done:false, editing:true},
+      {id:99, timeStamp:new Date(), text:'test todo 2', done:false, editing:false}
     ];
 
     todoList.addTodo = function() {
@@ -27,9 +27,15 @@ angular.module('todoApp', [])
 
     todoList.editTodo = function(index) {
       todoList.todos[index].editing=true;
-      hey = "editTodoElement" + index;
-      document.getElementById(hey).focus();
-      //alert(hey);
+      elementId = "editTodoElement" + index;
+      document.getElementById(elementId).select();
+    }
+
+    todoList.doneEditing = function(index) {
+      todoList.todos[index].editing=false;
+      if (todoList.todos[index].text == "") {
+        todoList.todos[index].text = "empty task";
+      }
     }
 
     todoList.deleteTodo = function(index) {

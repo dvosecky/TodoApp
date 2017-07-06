@@ -11,14 +11,14 @@ body {
 
 .padBottom {
   display: block;
-  margin: 0px 2px;
+  margin: 1px 2px;
   width: 296px;
 }
 
 .padBottomShadow {
   box-shadow: 3px 4px 5px 0px rgba(0, 0, 0, .5);
   height: 10px;
-  margin: -11px auto 0 auto;
+  margin: -12px auto 0 auto;
   width: 280px;
 }
 
@@ -58,7 +58,10 @@ hr {
 }
 
 .visible-false {
-  display: none;
+  display: inline-block;
+  height: 0;
+  width: 0;
+  overflow: hidden;
 }
 
 .strikethrough-false {
@@ -113,7 +116,7 @@ input[type=checkbox] + label{
   box-shadow: inset 3px 3px 5px grey;
   display: inline-block;
   height: 26px;
-  margin-right: 24px;
+  margin: 0 24px 0 5px;
   vertical-align: middle;
   width: 26px;
 }
@@ -154,13 +157,14 @@ input[type=checkbox]:checked + label {
 
 .editTextField {
   display: inline-block;
-  margin: 7px 5px 7px 5px;
+  margin: 7px 5px 7px 0px;
   vertical-align: middle;
   width: 155px;
 }
 
 .doneEditingButton {
   display: inline-block;
+  margin-right: 5px;
   vertical-align: middle;
   width: 47px;
 }
