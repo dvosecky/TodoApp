@@ -51,18 +51,19 @@ angular.module('todoApp', [])
     }
 
     todoList.editTodo = function(index) {
-      /*todoList.todos[index].editing=true;
+      todoList.todos[index].editing=true;
       elementId = "editTodoElement" + index;
-      document.getElementById(elementId).select();*/
+      document.getElementById(elementId).select();
     }
 
     todoList.doneEditing = function(index) {
-      /*todoList.todos[index].editing=false;
+      todoList.todos[index].editing=false;
       if (todoList.todos[index].text == "") {
         todoList.todos[index].text = "empty task";
       }
 
-      todoList.updateLocalStorage();*/
+      reference = firebase.database().ref('/' + todoList.todos[index].key + '/text');
+      reference.set(todoList.todos[index].text);
     }
 
     todoList.deleteTodo = function(index) {
