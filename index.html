@@ -4,6 +4,19 @@
   <meta charset="UTF-8">
   <title>Todo List</title>
   <link rel="stylesheet" href="css/style.css">
+  <script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyDHzbA38ip5lyhaGW8gEHSLO33IWujQ3mo",
+      authDomain: "todo-list-fedc2.firebaseapp.com",
+      databaseURL: "https://todo-list-fedc2.firebaseio.com",
+      projectId: "todo-list-fedc2",
+      storageBucket: "todo-list-fedc2.appspot.com",
+      messagingSenderId: "557049437022"
+    };
+    firebase.initializeApp(config);
+  </script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
   <script src="js/index.js"></script>
 </head>
