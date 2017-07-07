@@ -33,7 +33,7 @@
     <hr>
 
     <div ng-repeat="todo in todoList.todos" class="todo">
-      <input type="checkbox" id="box{{$index}}" ng-model="todo.done" ng-click="todoList.updateLocalStorage()">
+      <input type="checkbox" id="box{{$index}}" ng-model="todo.done" ng-click="todoList.checkTodo($index)">
       <label for="box{{$index}}"></label>
       <hr class="redLine"><hr class="redLine">
 

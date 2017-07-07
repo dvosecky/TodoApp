@@ -50,6 +50,11 @@ angular.module('todoApp', [])
       document.getElementById("addTodoElement").focus();
     }
 
+    todoList.checkTodo = function(index) {
+      var reference = firebase.database().ref('/' + todoList.todos[index].key + '/done');
+      reference.set(todoList.todos[index].done);
+    }
+
     todoList.editTodo = function(index) {
       todoList.todos[index].editing=true;
       elementId = "editTodoElement" + index;
@@ -62,7 +67,7 @@ angular.module('todoApp', [])
         todoList.todos[index].text = "empty task";
       }
 
-      reference = firebase.database().ref('/' + todoList.todos[index].key + '/text');
+      var reference = firebase.database().ref('/' + todoList.todos[index].key + '/text');
       reference.set(todoList.todos[index].text);
     }
 
